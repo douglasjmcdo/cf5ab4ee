@@ -20,7 +20,6 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => {
       setCalldata(data);
-      console.log(data); //tbd
     })
     .catch((err) => {
       console.error(err.message);

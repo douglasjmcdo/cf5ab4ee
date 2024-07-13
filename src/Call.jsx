@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 const Call = ({item, BASE_URL, calldata, setCalldata}) => {
+    //constants
     const patchurl = BASE_URL + "/activities/" + item.id;
-    const options = {month: "short", day: "numeric", hour: "numeric", minute: "numeric"}
-    const datestring = new Date(item.created_at).toLocaleString([],options);
+    const dateoptions = {month: "short", day: "numeric", hour: "numeric", minute: "numeric"}
+    const datestring = new Date(item.created_at).toLocaleString([],dateoptions);
     const directionsrc = './public/' + item.direction + '.png'
+
+    //determine whether call_type img will be gif or png
     let typesrc = './public/' + item.call_type;
     if (item.call_type == "missed_call") {
         typesrc += ".gif";
@@ -11,12 +14,15 @@ const Call = ({item, BASE_URL, calldata, setCalldata}) => {
         typesrc += ".png";
     }
 
+    //state variables
     const [expanded, setExpanded] = useState(false);
  
+    // function to toggle call details
     function toggleExpand() {
         setExpanded(!expanded);
     };
 
+    // function to un/archive individual call
     function toggleArchive() {
         //patch the database
         fetch(patchurl, {
@@ -30,7 +36,7 @@ const Call = ({item, BASE_URL, calldata, setCalldata}) => {
         })
         .then((response) => {
             //once database is successfully patched, update local calldata (and by extension, item)
-            let newcalldata = calldata.slice();
+            let newcalldata = [...calldata];
             for (let i = 0; i < newcalldata.length; i++) {
                 if (newcalldata[i].id == item.id) {
                     newcalldata[i].is_archived = !item.is_archived;

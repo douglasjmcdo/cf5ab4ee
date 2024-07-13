@@ -14,7 +14,7 @@
     height: 46px;
 }
 
-/* base display: always visible */
+/* styling for base display: always visible */
 
 .basedisplay {
     display: flex;
@@ -47,7 +47,8 @@
     font-style:italic;
 }
 
-/* expanded display: toggles on click */
+/* styling for expanded display: toggles on click */
+
 .expandeddisplay {
     display:flex;
     justify-content: space-between;
@@ -80,10 +81,16 @@
   background-color: pink;
   padding: 10px;
   margin: 2px;
-  transition: background-color .2s ease-out;
+  transition: .2s ease-in-out;
 }
 
 .archivebutton:hover {
     background-color: rgb(255, 149, 167);
-    transition: background-color .2s ease-out;
+    transition: .2s ease-in-out;
+}
+
+
+.archivebutton:active {
+    background-color: rgb(255, 127, 148);
+    transform:scale(1.05);
 }
