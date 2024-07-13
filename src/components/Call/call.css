@@ -1,23 +1,26 @@
 .call {
-    padding: 5px;
-    margin: 5px;
     border-radius: 20px;
     background-color: #aaffaa;
     cursor: pointer;
-    height: 92px;
+    height: 102px;
     transition: .3s ease-in-out;
 }
 
-.call:has(.hidden) {
-    height: 36px;
+.call:hover {
+    background-color: #cfa;
 }
 
-/* base display: always visible */
+.call:has(.hidden) {
+    height: 46px;
+}
+
+/* styling for base display: always visible */
 
 .basedisplay {
     display: flex;
     justify-content: space-between;
-    padding: 3px;
+    padding: 8px;
+    padding-bottom: 3px;
 }
 
 .icon {
@@ -44,14 +47,16 @@
     font-style:italic;
 }
 
-/* expanded display: toggles on click */
+/* styling for expanded display: toggles on click */
+
 .expandeddisplay {
     display:flex;
     justify-content: space-between;
     background-color: white;
     border-radius: 16px;
     padding: 5px;
-    margin: 3px;
+    margin: 8px;
+    margin-top: 3px;
     transition: .3s ease-in-out;
     transform-origin: top;
 }
@@ -76,8 +81,16 @@
   background-color: pink;
   padding: 10px;
   margin: 2px;
+  transition: .2s ease-in-out;
 }
 
 .archivebutton:hover {
     background-color: rgb(255, 149, 167);
+    transition: .2s ease-in-out;
+}
+
+
+.archivebutton:active {
+    background-color: rgb(255, 127, 148);
+    transform:scale(1.05);
 }

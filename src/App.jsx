@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './Header.jsx';
-import Tabs from './Tabs.jsx';
-import Panel from './Panel.jsx';
+import Header from './components/Header/Header.jsx';
+import Tabs from './components/Tabs/Tabs.jsx';
+import Panel from './components/Panel/Panel.jsx';
 
 const App = () => {
   //constants
@@ -20,7 +20,6 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => {
       setCalldata(data);
-      console.log(data); //tbd
     })
     .catch((err) => {
       console.error(err.message);
@@ -32,7 +31,7 @@ const App = () => {
       <Header/>
       <div className="container-view">
         <Tabs inbox={inbox} setInbox={setInbox} tabnames={tabnames}/>
-        <Panel calldata={calldata} inbox={inbox}/>
+        <Panel calldata={calldata} setCalldata={setCalldata} inbox={inbox} BASE_URL={BASE_URL}/>
       </div>
       
     </div>

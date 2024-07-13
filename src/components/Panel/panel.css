@@ -1,0 +1,75 @@
+.panel {
+    padding: 10px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* animations for calls entering/exiting the activity feed */
+
+.callanim {
+    transform-origin: top;
+    display: flex;
+}
+
+.callanim-enter {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.callanim-enter-active {
+    opacity: 1;
+    max-height: 100px;
+    margin: 5px;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition-delay: .3s;
+    transition: height margin opacity transform .3s ease-out;
+}
+
+.callanim-enter-done {
+    margin: 5px;
+    margin-bottom: 7px;
+}
+
+.callanim-exit {
+    opacity: 1;
+    margin: 5px;
+    transform: scaleY(1);
+    max-height: 100px;
+    transform-origin: top;
+}
+
+.callanim-exit-active {
+    opacity: 0;
+    margin: 0px;
+    transform: scaleY(0);
+    max-height: 0px;
+    transform-origin: top;
+    transition: height margin opacity transform .3s ease-in;
+  }
+  
+/* styling for the mass toggle button */
+
+.masstogglebtn {
+    background-color: pink;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.masstogglebtn:hover {
+    background-color: rgb(255, 149, 167);
+    transition: .2s ease-in-out;
+}
+
+.masstogglebtn:active {
+    background-color: rgb(255, 127, 148);
+    transform: scale(1.02, 1.1);
+}
+
