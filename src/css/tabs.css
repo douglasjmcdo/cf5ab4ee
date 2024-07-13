@@ -21,12 +21,11 @@
 }
 
 .tabbutton:hover {
-    background-color: #FFA;
+    background-color: #CFA;
 }
 
 .tabbutton:active {
     background-color: white;
+    transform-origin:bottom;
+    transform: scaleY(1.1);
 }
-
-/* todo: add activated styling for tabs */
-/* todo: add animation for color changes */

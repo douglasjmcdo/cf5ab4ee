@@ -32,7 +32,7 @@ const App = () => {
       <Header/>
       <div className="container-view">
         <Tabs inbox={inbox} setInbox={setInbox} tabnames={tabnames}/>
-        <Panel calldata={calldata} inbox={inbox}/>
+        <Panel calldata={calldata} setCalldata={setCalldata} inbox={inbox} BASE_URL={BASE_URL}/>
       </div>
       
     </div>

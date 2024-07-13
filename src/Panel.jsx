@@ -1,18 +1,22 @@
 import Call from "./Call.jsx";
-const Panel = ({calldata, inbox}) => {
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+const Panel = ({calldata, setCalldata, inbox, BASE_URL}) => {    
     return (
-        <div className="panel">
+        <TransitionGroup component="div" className="panel">
             {/* todo: add un/archive button here */}
             {calldata && calldata.filter(raw => (raw.is_archived === false && inbox == "Inbox" ||
-                                    raw.is_archived === true && inbox == "Archived"
-            )).map((item) => {
+                                    raw.is_archived === true && inbox == "Archived"))
+            .map((item) => {
                 return (
-                <div key={item.id}>
-                    <Call item={item} />
-                </div>
+                    <CSSTransition key={item.id} timeout={300} classNames='callanim'>
+                        <Call item={item} BASE_URL={BASE_URL} key={item.id}
+                        calldata={calldata} setCalldata={setCalldata}
+                        />
+                    </CSSTransition>
                 )
             })}
-        </div>
+        </TransitionGroup>
     );
 };
 export default Panel;
