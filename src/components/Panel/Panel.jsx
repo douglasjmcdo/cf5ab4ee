@@ -1,4 +1,4 @@
-import Call from "./Call.jsx";
+import Call from "../Call/Call.jsx";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Panel = ({calldata, setCalldata, inbox, BASE_URL}) => {   
