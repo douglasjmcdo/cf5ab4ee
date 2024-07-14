@@ -51,18 +51,20 @@ const Call = ({item, BASE_URL, calldata, setCalldata}) => {
     }
 
     return (
-            <div className="call" onClick={() => toggleExpand()}>
+            <div className="call" tabIndex='0' 
+            aria-label={item.direction + " call at " + datestring}
+            aria-expanded={expanded}
+            onClick={toggleExpand} onKeyUp={(e) => {if (e.key === "Enter") {toggleExpand()}}}>
                 {/* permanent display */}
                 <div className="basedisplay">
-                    <img className="direction icon" src={directionsrc}/>
+                    <img className="direction icon" src={directionsrc} alt={item.direction + " icon"}/>
                     <div className="whoandwhen">
                         <div className="otherparty">
                             {item.direction == "inbound" ? ("From " + item.from) : ("To " + item.to)}
                         </div>
                         <div className="time">{datestring}</div>
                     </div>
-                    <img className="calltype icon" src={typesrc}
-                    />
+                    <img className="calltype icon" src={typesrc} alt={item.call_type + " icon"}/>
                 </div>
                 {/* displays on click */}
                 <div className={expanded ? "expandeddisplay" : "expandeddisplay hidden" }>
@@ -72,7 +74,7 @@ const Call = ({item, BASE_URL, calldata, setCalldata}) => {
                         <div>Via: {item.via}</div>
                     </div>
                     <button className="archivebutton"
-                    onClick={() => toggleArchive()}>
+                    onClick={toggleArchive}>
                         {item.is_archived ? "Move to Inbox" : "Archive Call" }
                     </button>
                 </div>

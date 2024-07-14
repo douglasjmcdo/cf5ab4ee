@@ -74,4 +74,6 @@ The API is hosted on a free server, which is why the first time you call the API
 
 ### DougNotes
 
-- Call icons are sourced from <a target="_blank" href="https://icons8.com">Icons8</a>
+- Call icons are sourced from <a target="_blank" href="https://icons8.com">Icons8</a>.
+- Beyond meeting the assessment parameters as listed above, my top priorities while making this were professionalism in version control and ensuring accessibility. 
+- There's still more to do for robustness and maintainability! Given another day, I would focus on implementing automated testing for all components, more robust error handling for APIs, and more scalable code (global color variables, abstracting or isolating potentially reusable components such as the tabs or mass archive button, etc).

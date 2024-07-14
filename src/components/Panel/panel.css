@@ -5,6 +5,10 @@
     justify-content: space-between;
     flex-grow: 1;
 }
+.callwrapper {
+    height: 70vh;
+    overflow: scroll;
+}
 
 /* animations for calls entering/exiting the activity feed */
 

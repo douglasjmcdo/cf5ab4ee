@@ -12,6 +12,7 @@
 
 button {
   font-family: 'Verdana', sans-serif;
+  cursor: pointer;
 }
 
 #app .container {

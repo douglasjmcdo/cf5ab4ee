@@ -1,15 +1,16 @@
 const Tabs = ({inbox, setInbox, tabnames}) => {
     return (
-        <div className="tabs">
+        <nav className="tabs">
             {tabnames.map((tab) => {
-                return (<button 
+                return (
+                <button 
                 className={inbox === tab ? "tabbutton active" : "tabbutton"}
                 key={tab}
                 onClick={() => setInbox(tab)}>
                     {tab}
                 </button>)
             })}
-        </div>
+        </nav>
     );
 }
 
