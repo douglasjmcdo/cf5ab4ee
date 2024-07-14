@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
+import answered from '../../../public/answered.png';
+import inbound from '../../../public/inbound.png';
+import outbound from '../../../public/outbound.png';
+import voicemail  from '../../../public/voicemail.png';
+import missed_call  from '../../../public/missed call.gif';
+
 const Call = ({item, BASE_URL, calldata, setCalldata}) => {
     //constants
     const patchurl = BASE_URL + "/activities/" + item.id;
     const dateoptions = {month: "short", day: "numeric", hour: "numeric", minute: "numeric"}
     const datestring = new Date(item.created_at).toLocaleString([],dateoptions);
-    const directionsrc = './public/' + item.direction + '.png'
-
-    //determine whether call_type img will be gif or png
-    let typesrc = './public/' + item.call_type;
-    if (item.call_type == "missed_call") {
-        typesrc += ".gif";
-    } else {
-        typesrc += ".png";
-    }
 
     //state variables
     const [expanded, setExpanded] = useState(false);
@@ -57,14 +54,18 @@ const Call = ({item, BASE_URL, calldata, setCalldata}) => {
             onClick={toggleExpand} onKeyUp={(e) => {if (e.key === "Enter") {toggleExpand()}}}>
                 {/* permanent display */}
                 <div className="basedisplay">
-                    <img className="direction icon" src={directionsrc} alt={item.direction + " icon"}/>
+                    <img className="direction icon" 
+                    src={item.direction == "outbound" ? outbound : inbound } 
+                    alt={item.direction + " icon"}/>
                     <div className="whoandwhen">
                         <div className="otherparty">
                             {item.direction == "inbound" ? ("From " + item.from) : ("To " + item.to)}
                         </div>
                         <div className="time">{datestring}</div>
                     </div>
-                    <img className="calltype icon" src={typesrc} alt={item.call_type + " icon"}/>
+                    <img className="calltype icon" 
+                    src={item.call_type == "answered" ? answered : item.call_type == "voicemail" ? voicemail : missed_call } 
+                    alt={item.call_type + " icon"}/>
                 </div>
                 {/* displays on click */}
                 <div className={expanded ? "expandeddisplay" : "expandeddisplay hidden" }>
