@@ -66,7 +66,7 @@ const Panel = ({calldata, setCalldata, inbox, BASE_URL}) => {
     
     return (
         <div className="panel">
-            <TransitionGroup component="div">                
+            <TransitionGroup component="div" className="callwrapper">                
                 {calldata && calldata.filter(raw => (raw.is_archived === false && inbox == "Inbox" ||
                                         raw.is_archived === true && inbox == "Archived"))
                 .map((item) => {
@@ -81,9 +81,9 @@ const Panel = ({calldata, setCalldata, inbox, BASE_URL}) => {
             </TransitionGroup>
             <button
                     className="masstogglebtn"
-                    onClick={() => toggleAll()}
+                    onClick={toggleAll}
             >
-                    {inbox == "Inbox" ? "Archive All" : "Reset All" }
+                    {inbox == "Inbox" ? "Archive All" : "Restore All To Inbox" }
             </button>
         </div>
     );
